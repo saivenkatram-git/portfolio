@@ -2,13 +2,15 @@
 	import '../app.css';
 	import favicon from '$lib/assets/favicon.svg';
 	import Navbar from '$lib/components/+navbar.svelte';
+	import { ModeWatcher } from 'mode-watcher';
 </script>
 
 <svelte:head>
 	<link rel="icon" href={favicon} />
 </svelte:head>
 
-<main class="min-h-screen bg-[#1D1D20]">
+<main class="min-h-screen">
+	<ModeWatcher />
 	<Navbar />
 	<slot />
 </main>
