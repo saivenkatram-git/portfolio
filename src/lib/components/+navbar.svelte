@@ -26,7 +26,7 @@
 	<!-- Desktop Layout -->
 	<nav
 		transition:fade={{ duration: 500 }}
-		class="hidden w-full items-center justify-center p-6 text-white md:flex md:space-x-48 lg:space-x-56 xl:space-x-64"
+		class="sticky top-0 z-50 hidden w-full items-center justify-center p-6 text-white md:flex md:space-x-48 lg:space-x-56 xl:space-x-64"
 	>
 		<p class="font-mono text-black dark:text-white">Sai Venkatram</p>
 		<div class="flex items-center justify-center space-x-8 font-light text-black dark:text-white">
@@ -60,7 +60,7 @@
 	<!-- Mobile Layout -->
 	<nav
 		transition:fade={{ duration: 500 }}
-		class="flex w-full items-center justify-between p-8 text-black md:hidden dark:text-white"
+		class="sticky top-0 z-50 flex w-full items-center justify-between p-8 text-black md:hidden dark:text-white"
 	>
 		<p class="font-mono">Sai Venkatram</p>
 		<div class="flex items-center justify-center space-x-4">
@@ -80,7 +80,7 @@
 			</Button>
 			<DropdownMenu.Root>
 				<DropdownMenu.Trigger><Menu class="h-5 w-5" /></DropdownMenu.Trigger>
-				<DropdownMenu.Content class="m-4 w-72">
+				<DropdownMenu.Content class="m-4 w-72 bg-[#fffaf0] dark:bg-black">
 					<DropdownMenu.Label class="py-2">All pages</DropdownMenu.Label>
 					<DropdownMenu.Separator />
 					<DropdownMenu.Item class="py-2">Wallpapers</DropdownMenu.Item>
