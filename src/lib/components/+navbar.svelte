@@ -13,7 +13,7 @@
 <Motion initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 1 }} let:motion>
 	<nav
 		use:motion
-		class="sticky top-0 z-50 hidden w-full items-center justify-center p-6 text-white md:flex md:space-x-36 lg:space-x-56 xl:space-x-64"
+		class="sticky top-0 z-50 hidden w-full items-center justify-center p-6 text-white backdrop-blur-xl md:flex md:space-x-36 lg:space-x-56 xl:space-x-64"
 	>
 		<p class="font-mono text-black dark:text-white">Sai V.</p>
 		<div class="flex items-center justify-center space-x-8 font-light text-black dark:text-white">
@@ -52,7 +52,7 @@
 <Motion initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 1 }} let:motion>
 	<nav
 		use:motion
-		class="sticky top-0 z-50 flex w-full items-center justify-between p-8 text-black md:hidden dark:text-white"
+		class="sticky top-0 z-50 flex w-full items-center justify-between px-8 py-4 text-black backdrop-blur-xl md:hidden dark:text-white"
 	>
 		<p class="font-mono">Sai V.</p>
 		<div class="flex items-center justify-center space-x-4">
