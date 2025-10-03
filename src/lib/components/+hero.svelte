@@ -19,9 +19,9 @@
 	animate={{ opacity: 1, y: 0 }}
 	transition={{ duration: 1 }}
 >
-	<div
+	<section
 		use:motion
-		class="flex h-[calc(100vh-200px)] w-full items-center justify-between px-10 lg:h-96 lg:px-6"
+		class="flex h-[calc(100vh-200px)] w-full items-center justify-between px-10 md:h-96 lg:px-6"
 	>
 		<div class="flex flex-col items-start justify-center">
 			<img
@@ -40,5 +40,5 @@
 			class="my-6 hidden h-40 w-40 rounded-full border border-black object-cover transition-all hover:border-4 hover:border-gray-400 md:block dark:border-white hover:dark:border-yellow-400"
 			alt=""
 		/>
-	</div>
+	</section>
 </Motion>
