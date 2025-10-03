@@ -27,6 +27,13 @@
 
 <svelte:head>
 	<link rel="icon" href={favicon} />
+	<link
+		rel="preload"
+		href="/fonts/PPCirka-Variable.ttf"
+		as="font"
+		type="font/ttf"
+		crossorigin="anonymous"
+	/>
 </svelte:head>
 
 <main class="min-h-screen">
