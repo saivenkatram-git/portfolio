@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { Motion } from 'svelte-motion';
 	import Button from './ui/button/button.svelte';
+	import HeroAvatar from '$lib/assets/avatar.jpeg?enhanced';
 
 	function downloadResume() {
 		const link = document.createElement('a');
@@ -24,8 +25,8 @@
 		class="flex h-[600px] w-full items-center justify-between px-10 md:h-96 lg:px-6"
 	>
 		<div class="flex flex-col items-start justify-center">
-			<img
-				src="/images/avatar.jpeg"
+			<enhanced:img
+				src={HeroAvatar}
 				class="my-6 h-32 w-32 rounded-full border border-black object-cover transition-all hover:border-4 hover:border-gray-400 md:hidden dark:border-white hover:dark:border-yellow-400"
 				alt=""
 			/>
@@ -35,8 +36,8 @@
 			</p>
 			<Button variant="default" class="mt-6 p-6" onclick={downloadResume}>Download Resume</Button>
 		</div>
-		<img
-			src="/images/avatar.jpeg"
+		<enhanced:img
+			src={HeroAvatar}
 			class="my-6 hidden h-40 w-40 rounded-full border border-black object-cover transition-all hover:border-4 hover:border-gray-400 md:block dark:border-white hover:dark:border-yellow-400"
 			alt=""
 		/>
