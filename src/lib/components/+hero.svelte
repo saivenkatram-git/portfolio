@@ -29,7 +29,7 @@
 				class="my-6 h-32 w-32 rounded-full border border-black object-cover transition-all hover:border-4 hover:border-gray-400 md:hidden dark:border-white hover:dark:border-yellow-400"
 				alt=""
 			/>
-			<h1 class="font-cirka text-5xl sm:text-6xl md:text-[56px]">Hi,<br /> I'm Sai Venkatram</h1>
+			<h1 class="font-cirka text-5xl sm:text-6xl md:text-[56px]">Sai Venkatram</h1>
 			<p class="text-md font-mono text-gray-400 md:text-lg dark:text-gray-600">
 				Fullstack Software Developer 👾
 			</p>

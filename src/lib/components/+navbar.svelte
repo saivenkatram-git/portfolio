@@ -52,7 +52,7 @@
 <Motion initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 1 }} let:motion>
 	<nav
 		use:motion
-		class="sticky top-0 z-50 flex w-full items-center justify-between px-8 py-4 text-black backdrop-blur-xl md:hidden dark:text-white"
+		class="pt-safe sticky top-0 z-50 flex w-full items-center justify-between px-8 py-4 text-black backdrop-blur-xl md:hidden dark:text-white"
 	>
 		<p class="font-mono">Sai V.</p>
 		<div class="flex items-center justify-center space-x-4">
