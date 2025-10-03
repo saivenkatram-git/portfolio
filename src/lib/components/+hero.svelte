@@ -19,7 +19,10 @@
 	animate={{ opacity: 1, y: 0 }}
 	transition={{ duration: 1 }}
 >
-	<div use:motion class="flex min-h-96 w-full items-center justify-between p-10 lg:p-6">
+	<div
+		use:motion
+		class="flex min-h-1/2 w-full translate-y-1/2 items-center justify-between px-10 md:min-h-96 md:translate-y-1 lg:px-6"
+	>
 		<div class="flex flex-col items-start justify-center">
 			<img
 				src="/images/avatar.jpeg"
