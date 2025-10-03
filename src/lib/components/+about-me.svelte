@@ -12,7 +12,7 @@
 		use:motion
 		class="flex min-h-40 w-full flex-col items-start justify-center gap-y-4 px-10 py-4 lg:px-6"
 	>
-		<h1 class="text-2xl font-medium">About me</h1>
+		<h1 class="font-cirka text-2xl font-bold">About me</h1>
 		<p class="font-light tracking-wider">
 			Hey there! 👋 I'm Sai, a full-stack developer based in Mumbai with a passion for building
 			digital products that actually work (most of the time). I love the entire journey of bringing
