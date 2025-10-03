@@ -21,7 +21,7 @@
 >
 	<section
 		use:motion
-		class="flex h-[calc(100vh-200px)] w-full items-center justify-between px-10 md:h-96 lg:px-6"
+		class="flex h-[600px] w-full items-center justify-between px-10 md:h-96 lg:px-6"
 	>
 		<div class="flex flex-col items-start justify-center">
 			<img
