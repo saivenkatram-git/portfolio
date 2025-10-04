@@ -3,26 +3,6 @@
 	import favicon from '$lib/assets/favicon.svg';
 	import Navbar from '$lib/components/+navbar.svelte';
 	import { ModeWatcher } from 'mode-watcher';
-	import Lenis from 'lenis';
-	import { onDestroy, onMount } from 'svelte';
-
-	let lenis: Lenis;
-
-	onMount(() => {
-		lenis = new Lenis({
-			autoRaf: true
-		});
-
-		lenis.on('scroll', (e) => {
-			console.log(e);
-		});
-	});
-
-	onDestroy(() => {
-		if (lenis) {
-			lenis.destroy();
-		}
-	});
 </script>
 
 <svelte:head>
