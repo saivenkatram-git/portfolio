@@ -129,5 +129,5 @@
 	font-style: normal;
 	font-weight: 200 700;
 	font-display: block;
-	src: url('/fonts/PPCirka-Variable.ttf');
+	src: url('$lib/assets/fonts/PPCirka-Variable.ttf');
 }
