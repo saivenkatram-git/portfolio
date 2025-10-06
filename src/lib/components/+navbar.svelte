@@ -7,18 +7,22 @@
 	import Button from './ui/button/button.svelte';
 	import { mode, toggleMode } from 'mode-watcher';
 	import { Motion } from 'svelte-motion';
+	import { page } from '$app/state';
 </script>
 
 <!-- Desktop Layout -->
 <Motion initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 1 }} let:motion>
 	<nav
 		use:motion
-		class="sticky top-0 z-50 hidden w-full items-center justify-center p-6 text-white backdrop-blur-xl md:flex md:space-x-36 lg:space-x-56 xl:space-x-64"
+		class="sticky top-0 z-50 hidden w-full items-center justify-center p-3 text-white backdrop-blur-xl md:flex md:space-x-36 lg:space-x-56 xl:space-x-64"
 	>
-		<p class="font-mono text-black dark:text-white">Sai V.</p>
+		<a href="/" class="font-mono text-black dark:text-white">Sai V.</a>
 		<div class="flex items-center justify-center space-x-8 font-light text-black dark:text-white">
-			<!-- svelte-ignore a11y_invalid_attribute -->
-			<a href="#" class="underline-offset-4 transition-all hover:-translate-y-0.5 hover:underline"
+			<a
+				href="/blog"
+				class="{page.url.pathname == '/blog'
+					? 'text-yellow-400'
+					: 'text-white'} underline-offset-4 transition-all hover:-translate-y-0.5 hover:underline"
 				>Blog</a
 			>
 			<div
@@ -28,7 +32,11 @@
 				<a href="https://github.com/saivenkatram-git" target="_blank">Github</a>
 			</div>
 			<!-- svelte-ignore a11y_invalid_attribute -->
-			<a href="#" class="underline-offset-4 transition-all hover:-translate-y-0.5 hover:underline"
+			<a
+				href="#"
+				class="{page.url.pathname == '/say-hi'
+					? 'text-yellow-400'
+					: 'text-white'} underline-offset-4 transition-all hover:-translate-y-0.5 hover:underline"
 				>Say Hi! 👋</a
 			>
 		</div>
@@ -75,7 +83,9 @@
 				<DropdownMenu.Content class="m-4 w-72 bg-[#fffaf0] dark:bg-black">
 					<DropdownMenu.Label class="py-2">All pages</DropdownMenu.Label>
 					<DropdownMenu.Separator />
-					<DropdownMenu.Item class="py-2 underline-offset-4 hover:underline">Blog</DropdownMenu.Item
+					<DropdownMenu.Item
+						class="{page.url.pathname == '/blog' ? 'text-yellow-400' : 'text-white'}
+               py-2 underline-offset-4 hover:underline"><a href="/blog">Blog</a></DropdownMenu.Item
 					>
 					<DropdownMenu.Item class="py-2 underline-offset-4 hover:underline">
 						<a
@@ -92,8 +102,11 @@
 						</a>
 					</DropdownMenu.Item>
 
-					<DropdownMenu.Item class="py-2 underline-offset-4 hover:underline"
-						>Say Hi! 👋</DropdownMenu.Item
+					<DropdownMenu.Item
+						class="{page.url.pathname == '/say-hi'
+							? 'text-yellow-400'
+							: 'text-white'} py-2 underline-offset-4 hover:underline"
+						><a href="/say-hi">Say Hi! 👋</a></DropdownMenu.Item
 					>
 				</DropdownMenu.Content>
 			</DropdownMenu.Root>
