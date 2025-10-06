@@ -21,8 +21,8 @@
 			<a
 				href="/blog"
 				class="{page.url.pathname == '/blog'
-					? 'text-yellow-400'
-					: 'text-white'} underline-offset-4 transition-all hover:-translate-y-0.5 hover:underline"
+					? 'text-purple-400 dark:text-yellow-400'
+					: 'text-black dark:text-white'} underline-offset-4 transition-all hover:-translate-y-0.5 hover:underline"
 				>Blog</a
 			>
 			<div
@@ -35,8 +35,8 @@
 			<a
 				href="#"
 				class="{page.url.pathname == '/say-hi'
-					? 'text-yellow-400'
-					: 'text-white'} underline-offset-4 transition-all hover:-translate-y-0.5 hover:underline"
+					? 'text-purple-400 dark:text-yellow-400'
+					: 'text-black dark:text-white'} underline-offset-4 transition-all hover:-translate-y-0.5 hover:underline"
 				>Say Hi! 👋</a
 			>
 		</div>
@@ -84,7 +84,9 @@
 					<DropdownMenu.Label class="py-2">All pages</DropdownMenu.Label>
 					<DropdownMenu.Separator />
 					<DropdownMenu.Item
-						class="{page.url.pathname == '/blog' ? 'text-yellow-400' : 'text-white'}
+						class="{page.url.pathname == '/blog'
+							? 'text-purple-400 dark:text-yellow-400'
+							: 'text-black dark:text-white'}
                py-2 underline-offset-4 hover:underline"><a href="/blog">Blog</a></DropdownMenu.Item
 					>
 					<DropdownMenu.Item class="py-2 underline-offset-4 hover:underline">
@@ -104,8 +106,8 @@
 
 					<DropdownMenu.Item
 						class="{page.url.pathname == '/say-hi'
-							? 'text-yellow-400'
-							: 'text-white'} py-2 underline-offset-4 hover:underline"
+							? 'text-purple-400 dark:text-yellow-400'
+							: 'text-black dark:text-white'} py-2 underline-offset-4 hover:underline"
 						><a href="/say-hi">Say Hi! 👋</a></DropdownMenu.Item
 					>
 				</DropdownMenu.Content>
