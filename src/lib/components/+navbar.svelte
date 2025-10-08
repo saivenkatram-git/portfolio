@@ -38,7 +38,7 @@
 			<!-- Say Hi Dialog -->
 			<Dialog.Root>
 				<Dialog.Trigger>Say Hi! 👋</Dialog.Trigger>
-				<Dialog.Content>
+				<Dialog.Content class="flex w-full flex-col items-start gap-y-6">
 					<Dialog.Header><Dialog.Title>You can reach out to me on</Dialog.Title></Dialog.Header>
 					<div class="flex flex-col items-start gap-y-6">
 						<div class="flex items-center justify-start gap-x-2">
@@ -135,7 +135,7 @@
 </Motion>
 
 <Dialog.Root bind:open={dialogOpen}>
-	<Dialog.Content>
+	<Dialog.Content class="flex w-full flex-col items-start gap-y-6">
 		<Dialog.Header><Dialog.Title>You can reach out to me on</Dialog.Title></Dialog.Header>
 		<div class="flex flex-col items-start gap-y-6">
 			<div class="flex items-center justify-start gap-x-2">
