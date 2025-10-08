@@ -35,7 +35,7 @@
 	},
 	"private": true,
 	"scripts": {
-		"dev": "vite dev",
+		"dev": "vite dev --port 3000",
 		"build": "vite build",
 		"preview": "vite preview",
 		"prepare": "svelte-kit sync || echo ''",
@@ -49,6 +49,7 @@
 		"@lucide/svelte": "^0.544.0",
 		"@sveltejs/enhanced-img": "^0.8.3",
 		"mode-watcher": "^1.1.0",
-		"svelte-motion": "^0.12.2"
+		"svelte-motion": "^0.12.2",
+		"three": "^0.180.0"
 	}
 }

@@ -1,13 +1,16 @@
 <script lang="ts">
 	import GithubLogo from '$lib/assets/github_logo.svg';
 	import GithubDarkLogo from '$lib/assets/github_logo_dark.svg';
-	import { Menu } from '@lucide/svelte';
+	import { InstagramIcon, LinkedinIcon, MailIcon, Menu } from '@lucide/svelte';
 	import * as DropdownMenu from '$lib/components/ui/dropdown-menu/index.js';
 	import { SunIcon, MoonIcon } from '@lucide/svelte';
 	import Button from './ui/button/button.svelte';
 	import { mode, toggleMode } from 'mode-watcher';
 	import { Motion } from 'svelte-motion';
 	import { page } from '$app/state';
+	import * as Dialog from '$lib/components/ui/dialog/index.js';
+
+	let dialogOpen: boolean = false;
 </script>
 
 <!-- Desktop Layout -->
@@ -31,14 +34,28 @@
 				<img src={mode.current == 'dark' ? GithubLogo : GithubDarkLogo} alt="" class="h-5 w-5" />
 				<a href="https://github.com/saivenkatram-git" target="_blank">Github</a>
 			</div>
-			<!-- svelte-ignore a11y_invalid_attribute -->
-			<a
-				href="#"
-				class="{page.url.pathname == '/say-hi'
-					? 'text-purple-400 dark:text-yellow-400'
-					: 'text-black dark:text-white'} underline-offset-4 transition-all hover:-translate-y-0.5 hover:underline"
-				>Say Hi! 👋</a
-			>
+
+			<!-- Say Hi Dialog -->
+			<Dialog.Root>
+				<Dialog.Trigger>Say Hi! 👋</Dialog.Trigger>
+				<Dialog.Content>
+					<Dialog.Header><Dialog.Title>You can reach out to me on</Dialog.Title></Dialog.Header>
+					<div class="flex flex-col items-start gap-y-6">
+						<div class="flex items-center justify-start gap-x-2">
+							<MailIcon class="h-5 w-5" />
+							<a href="mailto:saiv.contact@gmail.com">Send a mail :)</a>
+						</div>
+						<div class="flex items-center justify-start gap-x-2">
+							<InstagramIcon class="h-5 w-5" />
+							<a href="https://www.instagram.com/oyeitssai/">oyeitssai</a>
+						</div>
+						<div class="flex items-center justify-start gap-x-2">
+							<LinkedinIcon class="h-5 w-5" />
+							<a href="https://www.linkedin.com/in/sai-venkatram">Linkedin</a>
+						</div>
+					</div>
+				</Dialog.Content>
+			</Dialog.Root>
 		</div>
 		<Button
 			onclick={toggleMode}
@@ -62,13 +79,13 @@
 		use:motion
 		class="pt-safe sticky top-0 z-50 flex w-full items-center justify-between px-8 py-4 text-black backdrop-blur-xl md:hidden dark:text-white"
 	>
-		<p class="font-mono">Sai V.</p>
+		<a href="/" class="font-mono">Sai V.</a>
 		<div class="flex items-center justify-center space-x-4">
 			<Button
 				onclick={toggleMode}
 				variant="default"
 				size="icon"
-				class="bg-gray-400 transition-colors hover:bg-gray-500 dark:bg-yellow-400"
+				class="-gray-400 transition-colors hover:bg-gray-500 dark:bg-yellow-400"
 			>
 				<SunIcon
 					class="h-[1.2rem] w-[1.2rem] scale-0 -rotate-90  !transition-all dark:scale-100 dark:rotate-0"
@@ -76,7 +93,7 @@
 				<MoonIcon
 					class="absolute h-[1.2rem] w-[1.2rem] scale-100 rotate-0 !transition-all dark:scale-0 dark:rotate-90"
 				/>
-				<span class="sr-only">Toggle theme</span>
+				<span class="sr-only">Toggle Theme</span>
 			</Button>
 			<DropdownMenu.Root>
 				<DropdownMenu.Trigger><Menu class="h-5 w-5" /></DropdownMenu.Trigger>
@@ -105,13 +122,34 @@
 					</DropdownMenu.Item>
 
 					<DropdownMenu.Item
-						class="{page.url.pathname == '/say-hi'
-							? 'text-purple-400 dark:text-yellow-400'
-							: 'text-black dark:text-white'} py-2 underline-offset-4 hover:underline"
-						><a href="/say-hi">Say Hi! 👋</a></DropdownMenu.Item
+						class="
+							 w-full py-2 text-black underline-offset-4 hover:underline dark:text-white"
+						><button class="flex w-full justify-start" on:click={() => (dialogOpen = true)}
+							>Say Hi! 👋</button
+						></DropdownMenu.Item
 					>
 				</DropdownMenu.Content>
 			</DropdownMenu.Root>
 		</div>
 	</nav>
 </Motion>
+
+<Dialog.Root bind:open={dialogOpen}>
+	<Dialog.Content>
+		<Dialog.Header><Dialog.Title>You can reach out to me on</Dialog.Title></Dialog.Header>
+		<div class="flex flex-col items-start gap-y-6">
+			<div class="flex items-center justify-start gap-x-2">
+				<MailIcon class="h-5 w-5" />
+				<a href="mailto:saiv.contact@gmail.com">Send a mail :)</a>
+			</div>
+			<div class="flex items-center justify-start gap-x-2">
+				<InstagramIcon class="h-5 w-5" />
+				<a href="https://www.instagram.com/oyeitssai/">oyeitssai</a>
+			</div>
+			<div class="flex items-center justify-start gap-x-2">
+				<LinkedinIcon class="h-5 w-5" />
+				<a href="https://www.linkedin.com/in/sai-venkatram">Linkedin</a>
+			</div>
+		</div>
+	</Dialog.Content>
+</Dialog.Root>
