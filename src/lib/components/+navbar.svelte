@@ -37,7 +37,10 @@
 
 			<!-- Say Hi Dialog -->
 			<Dialog.Root>
-				<Dialog.Trigger>Say Hi! 👋</Dialog.Trigger>
+				<Dialog.Trigger
+					class="underline-offset-4 transition-all hover:-translate-y-0.5 hover:underline"
+					>Say Hi! 👋</Dialog.Trigger
+				>
 				<Dialog.Content class="flex w-full flex-col items-start gap-y-6">
 					<Dialog.Header><Dialog.Title>You can reach out to me on</Dialog.Title></Dialog.Header>
 					<div class="flex flex-col items-start gap-y-6">
@@ -47,7 +50,7 @@
 						</div>
 						<div class="flex items-center justify-start gap-x-2">
 							<InstagramIcon class="h-5 w-5" />
-							<a href="https://www.instagram.com/oyeitssai/">oyeitssai</a>
+							<a href="https://www.instagram.com/oyeitssai">oyeitssai</a>
 						</div>
 						<div class="flex items-center justify-start gap-x-2">
 							<LinkedinIcon class="h-5 w-5" />
@@ -104,7 +107,7 @@
 						class="{page.url.pathname == '/blog'
 							? 'text-purple-400 dark:text-yellow-400'
 							: 'text-black dark:text-white'}
-               py-2 underline-offset-4 hover:underline"><a href="/blog">Blog</a></DropdownMenu.Item
+            py-2 underline-offset-4 hover:underline"><a href="/blog">Blog</a></DropdownMenu.Item
 					>
 					<DropdownMenu.Item class="py-2 underline-offset-4 hover:underline">
 						<a
