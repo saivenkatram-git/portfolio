@@ -48,11 +48,11 @@
 						<p class="text-sm">{e.date}</p>
 					</div>
 					{#if index < TimelineComponents.length - 1}
-						<div class="h-20 w-1 rounded-lg bg-gray-300 lg:my-2 dark:bg-gray-700"></div>
+						<div class="h-20 w-1 rounded-lg bg-gray-300 lg:my-2 dark:bg-gray-800"></div>
 					{/if}
 				</div>
 				<div>
-					<p class="hidden py-2 text-sm lg:block">{e.date}</p>
+					<p class="hidden py-1 text-sm lg:block">{e.date}</p>
 				</div>
 			</div>
 		{/each}
