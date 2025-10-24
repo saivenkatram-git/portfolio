@@ -13,7 +13,7 @@
 			class="font-cirka
       text-2xl text-purple-400 sm:text-3xl lg:text-4xl dark:text-yellow-400"
 		>
-			COMING SOON...
+			COMING VERY SOON...
 		</p>
 	</div>
 </Motion>
