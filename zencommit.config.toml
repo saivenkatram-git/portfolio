@@ -54,5 +54,5 @@ revert = "⏪"
 
 [hooks]
 # Run commands before/after commit
-# pre_commit = "npm test"
+# pre_commit = "bun lint"
 # post_commit = "echo 'Committed successfully!'"
