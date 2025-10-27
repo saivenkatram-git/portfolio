@@ -9,6 +9,7 @@
 	import { Motion } from 'svelte-motion';
 	import { page } from '$app/state';
 	import * as Dialog from '$lib/components/ui/dialog/index.js';
+	import { resolve } from '$app/paths';
 
 	let dialogOpen: boolean = false;
 </script>
@@ -19,10 +20,10 @@
 		use:motion
 		class="sticky top-0 z-50 hidden w-full items-center justify-center p-3 text-white backdrop-blur-xl md:flex md:space-x-36 lg:space-x-56 xl:space-x-64"
 	>
-		<a href="/" class="font-mono text-black dark:text-white">Sai V.</a>
+		<a href={resolve('/')} class="font-mono text-black dark:text-white">Sai V.</a>
 		<div class="flex items-center justify-center space-x-8 font-light text-black dark:text-white">
 			<a
-				href="/blog"
+				href={resolve('/blog')}
 				class="{page.url.pathname == '/blog'
 					? 'text-purple-400 dark:text-yellow-400'
 					: 'text-black dark:text-white'} underline-offset-4 transition-all hover:-translate-y-0.5 hover:underline"
@@ -76,13 +77,14 @@
 		</Button>
 	</nav>
 </Motion>
+
 <!-- Mobile Layout -->
 <Motion initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 1 }} let:motion>
 	<nav
 		use:motion
 		class="pt-safe sticky top-0 z-50 flex w-full items-center justify-between px-8 py-4 text-black backdrop-blur-xl md:hidden dark:text-white"
 	>
-		<a href="/" class="font-mono">Sai V.</a>
+		<a href={resolve('/')} class="font-mono">Sai V.</a>
 		<div class="flex items-center justify-center space-x-4">
 			<Button
 				onclick={toggleMode}
@@ -107,7 +109,8 @@
 						class="{page.url.pathname == '/blog'
 							? 'text-purple-400 dark:text-yellow-400'
 							: 'text-black dark:text-white'}
-            py-2 underline-offset-4 hover:underline"><a href="/blog">Blog</a></DropdownMenu.Item
+            py-2 underline-offset-4 hover:underline"
+						><a href={resolve('/blog')}>Blog</a></DropdownMenu.Item
 					>
 					<DropdownMenu.Item class="py-2 underline-offset-4 hover:underline">
 						<a
