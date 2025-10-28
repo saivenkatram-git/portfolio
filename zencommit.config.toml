@@ -1,5 +1,4 @@
 # Zen Commit Configuration
-# https://github.com/yourusername/zc
 
 [project]
 name = "Portfolio"

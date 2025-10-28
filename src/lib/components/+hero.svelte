@@ -1,45 +1,35 @@
 <script lang="ts">
 	import { Motion } from 'svelte-motion';
-	import Button from './ui/button/button.svelte';
 	import HeroAvatar from '$lib/assets/avatar.jpeg?enhanced';
-
-	function downloadResume() {
-		const link = document.createElement('a');
-		link.href = '/files/Resume.pdf';
-		link.download = 'Sai_Venkatram_Resume.pdf';
-		document.body.appendChild(link);
-		link.click();
-		document.body.removeChild(link);
-	}
 </script>
 
 <!-- Hero Section -->
 <Motion
 	let:motion
-	initial={{ opacity: 0, y: 10 }}
+	initial={{ opacity: 0, y: 30 }}
 	animate={{ opacity: 1, y: 0 }}
 	transition={{ duration: 1 }}
 >
-	<section
-		use:motion
-		class="flex h-[600px] w-full items-center justify-between px-10 md:h-96 lg:px-6"
-	>
+	<section use:motion class="flex h-80 w-full items-center justify-between px-10 lg:px-6">
 		<div class="flex flex-col items-start justify-center">
-			<enhanced:img
-				src={HeroAvatar}
-				class="my-6 h-32 w-32 rounded-full border border-black object-cover transition-all hover:border-4 hover:border-gray-400 md:hidden dark:border-white hover:dark:border-yellow-400"
-				alt=""
-			/>
-			<h1 class="font-cirka text-5xl sm:text-6xl md:text-[56px]">Sai Venkatram</h1>
-			<p class="text-md font-mono text-gray-400 md:text-lg dark:text-gray-600">
-				Fullstack Software Developer 👾
+			<enhanced:img src={HeroAvatar} class="my-6 h-20 w-20 rounded-full object-cover" alt="" />
+			<h1 class="font-cirka text-3xl tracking-normal md:text-2xl">Sai Venkatram</h1>
+			<p class="font-mono text-sm font-light text-gray-400 dark:text-gray-600">
+				Fullstack Software Developer
 			</p>
-			<Button variant="default" class="mt-6 p-6" onclick={downloadResume}>Download Resume</Button>
+
+			<!-- Open to work pill -->
+			<div
+				class="mt-4 flex h-6 items-center justify-center gap-x-2 rounded-full border border-green-700 bg-green-900/10 px-2"
+			>
+				<span class="relative flex size-2">
+					<span
+						class="absolute inline-flex h-full w-full animate-ping rounded-full bg-green-400 opacity-75"
+					></span>
+					<span class="relative inline-flex size-2 rounded-full bg-green-500"></span>
+				</span>
+				<p class="font-mono text-[12px] font-light text-green-500">open to opportunities</p>
+			</div>
 		</div>
-		<enhanced:img
-			src={HeroAvatar}
-			class="my-6 hidden h-40 w-40 rounded-full border border-black object-cover transition-all hover:border-4 hover:border-gray-400 md:block dark:border-white hover:dark:border-yellow-400"
-			alt=""
-		/>
 	</section>
 </Motion>
