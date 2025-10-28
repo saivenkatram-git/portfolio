@@ -4,25 +4,27 @@
 
 <Motion
 	let:motion
-	initial={{ opacity: 0, y: 10 }}
+	initial={{ opacity: 0, y: 35 }}
 	animate={{ opacity: 1, y: 0 }}
 	transition={{ duration: 1 }}
 >
 	<section
 		use:motion
-		class="flex min-h-40 w-full flex-col items-start justify-center gap-y-4 px-10 py-4 lg:px-6"
+		class="flex min-h-40 w-full flex-col items-start justify-center gap-y-4 px-10 py-4 font-mono lg:px-6"
 	>
-		<h1 class="font-cirka text-2xl font-bold">About me</h1>
-		<p class="font-light tracking-wider">
-			Hey there! 👋 I'm Sai, a full-stack developer based in Mumbai with a passion for building
-			digital products that actually work (most of the time). I love the entire journey of bringing
-			ideas to life – from architecting systems and writing clean code to deploying features that
-			solve real problems. My toolkit includes everything from web, mobile apps to backend services,
-			and I'm always excited to learn whatever technology the project needs. When I'm not debugging
-			at odd hours or optimizing something that's already fast enough, you'll find me grinding
-			Valorant, trying to record music covers, or having strong opinions about code formatting. I
-			believe in writing code that doesn't make future-me cry, building things that matter, and the
-			healing power of a good cup of chai.
+		<div class="flex items-center justify-center gap-x-4">
+			<!-- <span class="h-[0.8px] w-8 rounded-lg bg-purple-400"></span> -->
+			<h1 class="text-sm font-light tracking-wider text-gray-600">ABOUT ME</h1>
+		</div>
+		<p class="text-sm leading-[22px] font-extralight text-gray-200">
+			<!-- TODO: Improve this -->
+			Hey 👋, i’m a full-stack developer from Mumbai who can’t leave a
+			<span class="text-purple-:00"><b><i>“how does this work?”</i></b></span>
+			question unanswered. Half the things I’ve built started because I got curious, opened a blank file,
+			and somehow ended up shipping something that <b><i>(miraculously)</i></b> works. I love the thrill
+			of breaking, fixing, and over-engineering things until they behave. When I’m not debugging at 3
+			am, i’m playing Valorant, recording music covers, or contemplating my next useless tech investment.
+			My code runs on curiosity, caffeine, and the occasional panic when something finally deploys correctly.
 		</p>
 	</section>
 </Motion>
