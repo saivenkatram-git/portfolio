@@ -5,8 +5,8 @@
 @custom-variant dark (&:is(.dark *));
 
 @theme {
-	--font-cirka: 'Cirka', sans-serif;
 	--font-mono: 'JetBrains Mono', monospace;
+	--font-serif: 'EB Garamond Variable', serif;
 }
 
 :root {
@@ -123,12 +123,4 @@
 	body {
 		@apply bg-background text-foreground;
 	}
-}
-
-@font-face {
-	font-family: Cirka;
-	font-style: normal;
-	font-weight: 200 700;
-	font-display: block;
-	src: url('$lib/assets/fonts/PPCirka-Variable.ttf');
 }
