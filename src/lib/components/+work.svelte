@@ -12,16 +12,16 @@
 
 	const TimelineComponents: TimelineComponent[] = [
 		{
-			designation: 'sr. software engineer',
-			company: 'kredere wealth partner',
-			date: 'november 2024 - september 2025',
-			companyLogo: KredereLogo
-		},
-		{
 			designation: 'software engineer',
 			company: 'indian energy exchange',
-			date: 'april 2024 - november 2024',
+			date: 'apr 2024 - nov 2024',
 			companyLogo: IEXLogo
+		},
+		{
+			designation: 'sr. software engineer',
+			company: 'kredere wealth partner',
+			date: 'nov 2024 - sep 2025',
+			companyLogo: KredereLogo
 		}
 	];
 </script>
@@ -38,15 +38,23 @@
 	>
 		<h1 class="text-sm font-light tracking-[0.2em] text-gray-500">WORK</h1>
 
-		<div class="flex w-full flex-col gap-y-8">
-			{#each TimelineComponents as e (e.company)}
+		<div class="flex w-full flex-col gap-y-4">
+			{#each TimelineComponents as e, i (e.company)}
 				<div class="group flex w-full items-center gap-x-4 lg:gap-x-6">
-					<!-- Logo -->
-					<img
-						src={e.companyLogo}
-						alt="{e.company} logo"
-						class="h-8 w-8 opacity-80 transition-opacity group-hover:opacity-100"
-					/>
+					<div class="flex flex-col items-center">
+						<!-- Logo -->
+						<div
+							class="
+            rounded-lg border border-gray-900 p-3
+            "
+						>
+							<img
+								src={e.companyLogo}
+								alt="{e.company} logo"
+								class="h-5 w-5 opacity-80 transition-opacity group-hover:opacity-100"
+							/>
+						</div>
+					</div>
 
 					<!-- Content -->
 					<div class="flex-1">
@@ -63,6 +71,9 @@
 						{e.date}
 					</p>
 				</div>
+				{#if i < TimelineComponents.length - 1}
+					<div class="ml-[22px] h-12 w-[0.8px] bg-gradient-to-b from-gray-800 to-gray-950"></div>
+				{/if}
 			{/each}
 		</div>
 	</section></Motion
