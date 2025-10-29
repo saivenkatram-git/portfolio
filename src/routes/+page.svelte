@@ -3,6 +3,8 @@
 	import AboutMe from '$lib/components/+about-me.svelte';
 	import Work from '$lib/components/+work.svelte';
 	import Projects from '$lib/components/+projects.svelte';
+	import Tech from '$lib/components/+tech.svelte';
+	import Footer from '$lib/components/+footer.svelte';
 </script>
 
 <div class="mx-auto mt-20 flex max-w-3xl flex-col items-center">
@@ -10,4 +12,6 @@
 	<AboutMe />
 	<Work />
 	<Projects />
+	<Tech />
+	<Footer />
 </div>
