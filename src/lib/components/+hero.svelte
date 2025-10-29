@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { Motion } from 'svelte-motion';
-	import HeroAvatar from '$lib/assets/avatar.jpeg?enhanced';
+	import HeroAvatar from '$lib/assets/avatar.png?enhanced';
 </script>
 
 <!-- Hero Section -->
@@ -13,9 +13,9 @@
 	<section use:motion class="flex h-80 w-full items-center justify-between px-10 lg:px-6">
 		<div class="flex flex-col items-start justify-center">
 			<enhanced:img src={HeroAvatar} class="my-6 h-20 w-20 rounded-full object-cover" alt="" />
-			<h1 class="font-cirka text-3xl tracking-normal md:text-2xl">Sai Venkatram</h1>
+			<h1 class="font-serif text-3xl font-light tracking-normal md:text-2xl">Sai Venkatram</h1>
 			<p class="font-mono text-sm font-light text-gray-400 dark:text-gray-600">
-				Fullstack Software Developer
+				Fullstack Software Developer 👾
 			</p>
 
 			<!-- Open to work pill -->
