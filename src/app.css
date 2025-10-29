@@ -4,7 +4,9 @@
 
 @custom-variant dark (&:is(.dark *));
 
+/* Tailwind V4 doesn't need tailwind.config.ts */
 @theme {
+	/* Fonts */
 	--font-mono: 'JetBrains Mono', monospace;
 	--font-serif: 'EB Garamond Variable', serif;
 }
@@ -123,4 +125,19 @@
 	body {
 		@apply bg-background text-foreground;
 	}
+}
+
+/* CUSTOM CLASSES ------------------------------------------------------ */
+
+/* SECTION */
+.section {
+	@apply flex min-h-40 w-full flex-col items-start justify-center gap-y-4 px-10 font-mono lg:px-6;
+}
+
+.section-animation {
+	@apply animate-in fade-in;
+}
+
+.section-title {
+	@apply text-sm font-light tracking-wider text-gray-600;
 }
