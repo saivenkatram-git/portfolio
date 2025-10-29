@@ -21,7 +21,7 @@
 	<title>Sai Venkatram's Portfolio</title>
 </svelte:head>
 
-<main class="min-h-screen">
+<main>
 	<ModeWatcher />
 	<slot />
 </main>
