@@ -1,5 +1,4 @@
 <script lang="ts">
-	import { Motion } from 'svelte-motion';
 	import GolangLogo from '$lib/assets/golang_logo.svg';
 	import HonoJSLogo from '$lib/assets/hono_logo.svg';
 	import FlutterLogo from '$lib/assets/flutter_logo.svg';
@@ -81,75 +80,65 @@
 	];
 </script>
 
-<Motion
-	let:motion
-	initial={{ opacity: 0, y: 45 }}
-	animate={{ opacity: 1, y: 0 }}
-	transition={{ duration: 1 }}
->
-	<section
-		use:motion
-		class="flex min-h-40 w-full flex-col items-start justify-center gap-y-4 px-10 py-6 font-mono lg:px-6"
-	>
-		<h1 class="text-sm font-light tracking-[0.2em] text-gray-500">RECENT PROJECTS</h1>
+<section class="section section-animation py-14 duration-1000 slide-in-from-bottom-15">
+	<h1 class="text-sm font-light tracking-wider text-gray-600">RECENT PROJECTS</h1>
 
-		<div class="flex w-full flex-col gap-y-4">
-			{#each projects as e (e.name)}
-				<div class="group flex w-full flex-col items-start gap-x-4 gap-y-2 lg:gap-x-6">
-					<p class="text-sm font-light text-gray-200">
-						{e.name}
-					</p>
-					<p class="text-sm font-light text-gray-500">
-						{e.description}
-					</p>
-					<div class="flex w-full flex-col items-start justify-between lg:flex-row lg:items-center">
-						<div class="flex items-center gap-2">
-							<!-- Built using... -->
-							<p class="mt-1 text-xs text-gray-600">Built using</p>
-							{#each e.stack as s (s.name)}
-								<a
-									href={s.url}
-									rel="external noopener noreferrer"
-									title={s.linkTitle}
-									target="_blank"
-									class="mt-1 text-xs text-gray-600 transition-colors hover:text-white">{s.name}</a
-								>
-								<img src={s.logo} alt="tech stack logo" class={s.customCssTag} />
-							{/each}
-						</div>
-
-						<!-- Source link -->
-						{#if e.source && e.sourceText && e.linkTitle}
+	<div class="flex w-full flex-col gap-y-4">
+		{#each projects as e (e.name)}
+			<div class="group flex w-full flex-col items-start gap-x-4 gap-y-2 lg:gap-x-6">
+				<p class="text-sm font-light text-gray-200">
+					{e.name}
+				</p>
+				<p class="text-sm font-light text-gray-500">
+					{e.description}
+				</p>
+				<div class="flex w-full flex-col items-start justify-between lg:flex-row lg:items-center">
+					<div class="flex items-center gap-2">
+						<!-- Built using... -->
+						<p class="mt-1 text-xs text-gray-600">Built using</p>
+						{#each e.stack as s (s.name)}
 							<a
-								href={e.source}
+								href={s.url}
 								rel="external noopener noreferrer"
+								title={s.linkTitle}
 								target="_blank"
-								title={e.linkTitle}
-								class="mt-2 flex items-center font-mono text-xs font-light text-yellow-500 transition-all hover:-translate-y-0.5 hover:underline hover:underline-offset-4
-              "
+								class="mt-1 text-xs text-gray-600 transition-colors hover:text-white">{s.name}</a
 							>
-								{e.sourceText}
-								<ArrowRight class="h-4 w-4" />
-							</a>
-						{:else}
-							<!-- Status Pill -->
-							<div
-								class="mt-4 flex h-6 items-center justify-center gap-x-2 rounded-full border border-gray-700 bg-gray-900/10 px-2"
-							>
-								<p class="font-mono text-[12px] font-light text-gray-500">
-									{e.status}
-								</p>
-							</div>
-						{/if}
+							<img src={s.logo} alt="tech stack logo" class={s.customCssTag} />
+						{/each}
 					</div>
 
-					<!-- Divider -->
-					<div class="mt-2 h-[0.4px] w-full bg-gradient-to-r from-gray-800 to-gray-950"></div>
+					<!-- Source link -->
+					{#if e.source && e.sourceText && e.linkTitle}
+						<a
+							href={e.source}
+							rel="external noopener noreferrer"
+							target="_blank"
+							title={e.linkTitle}
+							class="mt-2 flex items-center font-mono text-xs font-light text-yellow-500 transition-all hover:-translate-y-0.5 hover:underline hover:underline-offset-4
+              "
+						>
+							{e.sourceText}
+							<ArrowRight class="h-4 w-4" />
+						</a>
+					{:else}
+						<!-- Status Pill -->
+						<div
+							class="mt-4 flex h-6 items-center justify-center gap-x-2 rounded-full border border-gray-700 bg-gray-900/10 px-2"
+						>
+							<p class="font-mono text-[12px] font-light text-gray-500">
+								{e.status}
+							</p>
+						</div>
+					{/if}
 				</div>
-			{/each}
-		</div>
-	</section>
-</Motion>
+
+				<!-- Divider -->
+				<div class="mt-2 h-[0.4px] w-full bg-gradient-to-r from-gray-800 to-gray-950"></div>
+			</div>
+		{/each}
+	</div>
+</section>
 
 <style>
 	.size1 {
