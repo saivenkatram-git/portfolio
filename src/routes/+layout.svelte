@@ -2,6 +2,8 @@
 	import '../app.css';
 	import favicon from '$lib/assets/favicon.svg';
 	import { ModeWatcher } from 'mode-watcher';
+	import Navbar from '$lib/components/sections/+navbar.svelte';
+	import MoveUpButton from '$lib/components/custom/MoveUpButton.svelte';
 
 	// Fonts (JetBrains Mono)
 	import '@fontsource/jetbrains-mono/200.css'; // font-extralight
@@ -22,6 +24,7 @@
 <main>
 	<ModeWatcher />
 	<!-- TODO: Add navbar -->
-	<!-- <Navbar /> -->
+	<Navbar />
+	<MoveUpButton />
 	<slot />
 </main>
