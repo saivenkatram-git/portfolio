@@ -35,7 +35,8 @@
 					<!-- Logo -->
 					<div
 						class="
-            rounded-lg border border-gray-900 p-3
+            rounded-lg border border-gray-300 p-3 shadow-sm
+            dark:border-gray-900
             "
 					>
 						<img
@@ -48,21 +49,23 @@
 
 				<!-- Content -->
 				<div class="flex-1">
-					<p class="text-sm font-light text-gray-200">
+					<p class="text-sm font-light text-gray-600 dark:text-gray-200">
 						{e.designation}
 					</p>
-					<p class="mt-1 text-xs text-gray-500">
+					<p class="mt-1 text-xs text-gray-400 dark:text-gray-500">
 						{e.company}
 					</p>
 				</div>
 
 				<!-- Date -->
-				<p class="text-right text-xs text-gray-600">
+				<p class="text-right text-xs text-gray-500 dark:text-gray-600">
 					{e.date}
 				</p>
 			</div>
 			{#if i < TimelineComponents.length - 1}
-				<div class="ml-[22px] h-12 w-[0.8px] bg-gradient-to-b from-gray-800 to-gray-900"></div>
+				<div
+					class="ml-[22px] h-12 w-[0.8px] bg-gradient-to-b from-gray-300 to-gray-400 dark:from-gray-800 dark:to-gray-900"
+				></div>
 			{/if}
 		{/each}
 	</div>

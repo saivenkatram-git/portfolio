@@ -35,12 +35,12 @@
 </script>
 
 <section class="section section-animation py-14 duration-1000 slide-in-from-bottom-15">
-	<h1 class="text-sm font-light tracking-wider text-gray-600">TECH I USE</h1>
+	<h1 class="section-title">TECH I USE</h1>
 
 	<div class="grid grid-cols-2 gap-12 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5">
 		{#each technologies as e (e.name)}
 			<div class="group flex w-full items-center justify-start gap-x-4">
-				<p class="text-sm font-light text-gray-200">
+				<p class="text-sm font-light text-gray-600 dark:text-gray-200">
 					{e.name}
 				</p>
 				<img src={e.logo} alt={e.name} class={e.customCssTag} />
