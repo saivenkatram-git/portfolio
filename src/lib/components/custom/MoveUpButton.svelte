@@ -23,8 +23,8 @@
 >
 	<div class="flex flex-col items-center justify-center gap-y-2">
 		<button onclick={scrollToTop}>
-			<ArrowUpIcon class="h-5 w-5 text-yellow-500" />
+			<ArrowUpIcon class="h-5 w-5 text-pink-500 dark:text-yellow-500" />
 		</button>
-		<p class="font-mono text-[10px] dark:text-white">Scroll to top</p>
+		<p class="font-mono text-[10px] text-gray-400 dark:text-gray-600">Scroll to top</p>
 	</div>
 </div>

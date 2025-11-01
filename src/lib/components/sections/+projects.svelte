@@ -81,28 +81,29 @@
 </script>
 
 <section class="section section-animation py-14 duration-1000 slide-in-from-bottom-15">
-	<h1 class="text-sm font-light tracking-wider text-gray-600">RECENT PROJECTS</h1>
+	<h1 class="section-title">RECENT PROJECTS</h1>
 
 	<div class="flex w-full flex-col gap-y-4">
 		{#each projects as e, i (e.name)}
 			<div class="group flex w-full flex-col items-start gap-x-4 gap-y-2 lg:gap-x-6">
-				<p class="text-sm font-light text-gray-200">
+				<p class="text-sm font-light text-gray-600 dark:text-gray-200">
 					{e.name}
 				</p>
-				<p class="text-sm font-light text-gray-500">
+				<p class="text-sm font-light text-gray-400 dark:text-gray-500">
 					{e.description}
 				</p>
 				<div class="flex w-full flex-col items-start justify-between lg:flex-row lg:items-center">
 					<div class="flex items-center gap-2">
 						<!-- Built using... -->
-						<p class="mt-1 text-xs text-gray-600">Built using</p>
+						<p class="mt-1 text-xs text-gray-500 dark:text-gray-600">Built using</p>
 						{#each e.stack as s (s.name)}
 							<a
 								href={s.url}
 								rel="external noopener noreferrer"
 								title={s.linkTitle}
 								target="_blank"
-								class="mt-1 text-xs text-gray-600 transition-colors hover:text-white">{s.name}</a
+								class="mt-1 text-xs text-gray-500 transition-colors hover:text-white dark:text-gray-600"
+								>{s.name}</a
 							>
 							<img src={s.logo} alt="tech stack logo" class={s.customCssTag} />
 						{/each}
@@ -115,7 +116,7 @@
 							rel="external noopener noreferrer"
 							target="_blank"
 							title={e.linkTitle}
-							class="mt-2 flex items-center font-mono text-xs font-light text-yellow-500 transition-all hover:-translate-y-0.5 hover:underline hover:underline-offset-4
+							class="mt-2 flex items-center font-mono text-xs font-light text-pink-500 transition-all hover:-translate-y-0.5 hover:underline hover:underline-offset-4 dark:text-yellow-500
               "
 						>
 							{e.sourceText}
@@ -124,7 +125,7 @@
 					{:else}
 						<!-- Status Pill -->
 						<div
-							class="mt-4 flex h-6 items-center justify-center gap-x-2 rounded-full border border-gray-700 bg-gray-900/10 px-2"
+							class="shadown-sm mt-4 flex h-6 items-center justify-center gap-x-2 rounded-full border border-gray-400 bg-gray-300/10 px-2 dark:border-gray-700 dark:bg-gray-900/10"
 						>
 							<p class="font-mono text-[12px] font-light text-gray-500">
 								{e.status}
@@ -135,7 +136,9 @@
 
 				<!-- Divider -->
 				{#if i < projects.length - 1}
-					<div class="mt-2 h-[0.4px] w-full bg-gradient-to-r from-gray-800 to-gray-900"></div>
+					<div
+						class="mt-2 h-[0.4px] w-full bg-gradient-to-r from-gray-300 to-gray-400 dark:from-gray-800 dark:to-gray-900"
+					></div>
 				{/if}
 			</div>
 		{/each}
