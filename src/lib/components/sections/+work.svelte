@@ -62,7 +62,7 @@
 				</p>
 			</div>
 			{#if i < TimelineComponents.length - 1}
-				<div class="ml-[22px] h-12 w-[0.8px] bg-gradient-to-b from-gray-800 to-gray-950"></div>
+				<div class="ml-[22px] h-12 w-[0.8px] bg-gradient-to-b from-gray-800 to-gray-900"></div>
 			{/if}
 		{/each}
 	</div>

@@ -84,7 +84,7 @@
 	<h1 class="text-sm font-light tracking-wider text-gray-600">RECENT PROJECTS</h1>
 
 	<div class="flex w-full flex-col gap-y-4">
-		{#each projects as e (e.name)}
+		{#each projects as e, i (e.name)}
 			<div class="group flex w-full flex-col items-start gap-x-4 gap-y-2 lg:gap-x-6">
 				<p class="text-sm font-light text-gray-200">
 					{e.name}
@@ -134,7 +134,9 @@
 				</div>
 
 				<!-- Divider -->
-				<div class="mt-2 h-[0.4px] w-full bg-gradient-to-r from-gray-800 to-gray-950"></div>
+				{#if i < projects.length - 1}
+					<div class="mt-2 h-[0.4px] w-full bg-gradient-to-r from-gray-800 to-gray-900"></div>
+				{/if}
 			</div>
 		{/each}
 	</div>
