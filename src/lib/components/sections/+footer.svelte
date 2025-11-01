@@ -3,7 +3,7 @@
 </script>
 
 <section
-	class="flex h-26 w-full flex-col items-center justify-center gap-y-2 py-10 font-mono sm:flex-row"
+	class="mb-24 flex h-26 w-full flex-col items-center justify-center gap-y-2 py-10 font-mono sm:flex-row md:mb-0"
 >
 	<p class="text-sm font-light text-gray-600 sm:hidden">
 		Crafted with ♥️ using <span class="font-bold">Svelte</span>.
