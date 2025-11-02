@@ -1,12 +1,13 @@
 <script lang="ts">
-	import KredereLogo from '$lib/assets/kredere_logo.svg';
+	import KredereLogo from '$lib/components/custom/KredereLogo.svelte';
 	import IEXLogo from '$lib/assets/iex_logo.svg';
+	import type { Component } from 'svelte';
 
 	interface TimelineComponent {
 		company: string;
 		designation: string;
 		date: string;
-		companyLogo: string;
+		companyLogo: string | Component;
 	}
 
 	const TimelineComponents: TimelineComponent[] = [
@@ -39,11 +40,15 @@
             dark:border-gray-900
             "
 					>
-						<img
-							src={e.companyLogo}
-							alt="{e.company} logo"
-							class="h-5 w-5 opacity-80 transition-opacity group-hover:opacity-100"
-						/>
+						{#if typeof e.companyLogo === 'string'}
+							<img
+								src={e.companyLogo}
+								alt="{e.company} logo"
+								class="h-5 w-5 opacity-80 transition-opacity group-hover:opacity-100"
+							/>
+						{:else}
+							<svelte:component this={e.companyLogo} />
+						{/if}
 					</div>
 				</div>
 
