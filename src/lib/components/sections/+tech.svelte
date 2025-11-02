@@ -11,6 +11,8 @@
 	import MongoDBLogo from '$lib/assets/mongodb_logo.svg';
 	import PostgresLogo from '$lib/assets/postgresql_logo.svg';
 	import AWSLogo from '$lib/assets/aws_logo.svg';
+	import ReactLogo from '$lib/assets/react_logo.svg';
+	import FigmaLogo from '$lib/assets/figma_logo.svg';
 
 	interface Technology {
 		logo: string;
@@ -24,13 +26,15 @@
 		{ logo: TypescriptLogo, name: 'typescript', customCssTag: 'size2' },
 		{ logo: PythonLogo, name: 'python', customCssTag: 'size2' },
 		{ logo: NextJSLogo, name: 'next.js', customCssTag: 'size2' },
+		{ logo: ReactLogo, name: 'react', customCssTag: 'size2' },
 		{ logo: SvelteLogo, name: 'svelte', customCssTag: 'size2' },
 		{ logo: FlutterLogo, name: 'flutter', customCssTag: 'size2' },
 		{ logo: HonoJSLogo, name: 'hono js', customCssTag: 'size2' },
 		{ logo: PostgresLogo, name: 'postgresql', customCssTag: 'size2' },
 		{ logo: MongoDBLogo, name: 'mongodb', customCssTag: 'size2' },
 		{ logo: DockerLogo, name: 'docker', customCssTag: 'size2' },
-		{ logo: AWSLogo, name: 'aws', customCssTag: 'size2' }
+		{ logo: AWSLogo, name: 'aws', customCssTag: 'size2' },
+		{ logo: FigmaLogo, name: 'figma', customCssTag: 'size2' }
 	];
 </script>
 
@@ -57,7 +61,7 @@
 	}
 
 	.size2 {
-		margin-top: 4px;
+		margin-top: 2px;
 		width: 18px;
 		height: 18px;
 	}
