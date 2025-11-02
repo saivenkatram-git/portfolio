@@ -4,6 +4,7 @@
 	import { ModeWatcher } from 'mode-watcher';
 	import Navbar from '$lib/components/sections/+navbar.svelte';
 	import MoveUpButton from '$lib/components/custom/MoveUpButton.svelte';
+	import { injectSpeedInsights } from '@vercel/speed-insights/sveltekit';
 
 	// Fonts (JetBrains Mono)
 	import '@fontsource/jetbrains-mono/200.css'; // font-extralight
@@ -14,6 +15,8 @@
 	import '@fontsource/jetbrains-mono/700.css'; // font-bold
 
 	import '@fontsource/eb-garamond/400.css';
+
+	injectSpeedInsights();
 </script>
 
 <svelte:head>
