@@ -11,7 +11,6 @@
 		url: string;
 		name: string;
 		linkTitle: string;
-		customCssTag: string;
 	}
 
 	interface Project {
@@ -35,8 +34,7 @@
 					name: 'Golang',
 					logo: GolangLogo,
 					url: 'https://go.dev/',
-					linkTitle: 'Checkout Go Lang :)',
-					customCssTag: 'size1'
+					linkTitle: 'Checkout Go Lang :)'
 				}
 			],
 			source: 'https://github.com/saivenkatram-git/zencommit',
@@ -52,8 +50,7 @@
 					name: 'HonoJS',
 					logo: HonoJSLogo,
 					url: 'https://hono.dev/',
-					linkTitle: 'Checkout HonoJS (a powerful js/ts backend framework)',
-					customCssTag: 'size2'
+					linkTitle: 'Checkout HonoJS (a powerful js/ts backend framework)'
 				}
 			],
 			status: 'in progress',
@@ -69,8 +66,7 @@
 					name: 'Flutter',
 					logo: FlutterLogo,
 					url: 'https://flutter.dev/',
-					linkTitle: 'Checkout Flutter (a fast dart-based cross-platform movbile framework)',
-					customCssTag: 'size2'
+					linkTitle: 'Checkout Flutter (a fast dart-based cross-platform movbile framework)'
 				}
 			],
 			status: 'in progress',
@@ -102,10 +98,10 @@
 								rel="external noopener noreferrer"
 								title={s.linkTitle}
 								target="_blank"
-								class="mt-1 text-xs text-gray-500 transition-colors hover:text-white dark:text-gray-600"
+								class="mt-1 text-xs text-gray-500 transition-colors hover:text-black dark:text-gray-600 hover:dark:text-white"
 								>{s.name}</a
 							>
-							<img src={s.logo} alt="tech stack logo" class={s.customCssTag} />
+							<img src={s.logo} alt="tech stack logo" class="h-5 w-5" />
 						{/each}
 					</div>
 
@@ -144,17 +140,3 @@
 		{/each}
 	</div>
 </section>
-
-<style>
-	.size1 {
-		margin-top: 4px;
-		width: 36px;
-		height: 36px;
-	}
-
-	.size2 {
-		margin-top: 4px;
-		width: 20px;
-		height: 20px;
-	}
-</style>
