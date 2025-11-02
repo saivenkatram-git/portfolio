@@ -2,7 +2,7 @@
 	import { ArrowUpIcon } from '@lucide/svelte';
 	import { onMount } from 'svelte';
 
-	// Scroll funcrtionality :)
+	// Scroll functionality :)
 	let scrollPosition = 0;
 
 	onMount(() => {

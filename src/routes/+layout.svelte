@@ -6,16 +6,16 @@
 	import MoveUpButton from '$lib/components/custom/MoveUpButton.svelte';
 	import { injectSpeedInsights } from '@vercel/speed-insights/sveltekit';
 
-	// Fonts (JetBrains Mono)
+	// Fonts
 	import '@fontsource/jetbrains-mono/200.css'; // font-extralight
 	import '@fontsource/jetbrains-mono/300.css'; // font-light
 	import '@fontsource/jetbrains-mono/400.css'; // font-normal
 	import '@fontsource/jetbrains-mono/500.css'; // font-medium
 	import '@fontsource/jetbrains-mono/600.css'; // font-semibold
 	import '@fontsource/jetbrains-mono/700.css'; // font-bold
-
 	import '@fontsource/eb-garamond/400.css';
 
+	// Speed Insights - Vercel
 	injectSpeedInsights();
 </script>
 
