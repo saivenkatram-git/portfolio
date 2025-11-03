@@ -1,9 +1,11 @@
 <script lang="ts">
-	import { DownloadIcon, Linkedin, MailIcon } from '@lucide/svelte';
+	import { DownloadIcon, Linkedin, MailIcon, Copy, Check } from '@lucide/svelte';
 	import GithubIcon from '$lib/components/custom/GithubIcon.svelte';
 	import { SunIcon, MoonIcon } from '@lucide/svelte';
-	import Button from '../ui/button/button.svelte';
+	import Button from '$lib/components/ui/button/button.svelte';
+	import * as Popover from '$lib/components/ui/popover/index.js';
 	import { toggleMode } from 'mode-watcher';
+	import { onMount } from 'svelte';
 
 	function downloadResume() {
 		const link = document.createElement('a');
@@ -12,6 +14,34 @@
 		document.body.appendChild(link);
 		link.click();
 		document.body.removeChild(link);
+	}
+
+	// Detect for scroll for dismissing popover
+	let showPopover = false;
+	let copied = false;
+	const email = 'saiv.contact@gmail.com';
+
+	onMount(() => {
+		// Detect if user is scrolling
+		const checkScrolling = () => {
+			if (window.scrollY > 0) {
+				showPopover = false;
+			}
+		};
+
+		window.addEventListener('scroll', checkScrolling);
+
+		return () => {
+			window.removeEventListener('scroll', checkScrolling);
+		};
+	});
+
+	function copyEmail() {
+		navigator.clipboard.writeText(email);
+		copied = true;
+		setTimeout(() => {
+			copied = false;
+		}, 2000);
 	}
 </script>
 
@@ -45,11 +75,39 @@
 				class="h-4 w-4 transition-all hover:-translate-y-0.5 hover:text-pink-500 hover:dark:text-yellow-500"
 			/></a
 		>
-		<a href="mailto:saiv.contact@gmail.com" target="_blank" title="Email me :)"
-			><MailIcon
-				class="h-4 w-4 transition-all hover:-translate-y-0.5 hover:text-pink-500 hover:dark:text-yellow-500"
-			/></a
+		<a
+			href="mailto:saiv.contact@gmail.com"
+			class="block md:hidden"
+			target="_blank"
+			title="Email me :)"
 		>
+			<MailIcon
+				class="h-4 w-4 transition-all hover:-translate-y-0.5 hover:text-pink-500 hover:dark:text-yellow-500"
+			/>
+		</a>
+		<Popover.Root bind:open={showPopover}>
+			<Popover.Trigger class="hidden md:block">
+				<MailIcon
+					class="h-4 w-4 transition-all hover:-translate-y-0.5 hover:text-pink-500 hover:dark:text-yellow-500"
+				/>
+			</Popover.Trigger>
+			<Popover.Content class="mt-8 w-auto p-3">
+				<div class="flex items-center gap-2">
+					<div
+						class="rounded-md bg-gray-200 px-3 py-2 font-mono text-sm text-pink-500 dark:bg-gray-800 dark:text-yellow-500"
+					>
+						{email}
+					</div>
+					<Button onclick={copyEmail} variant="outline" size="icon" class="h-8 w-8">
+						{#if copied}
+							<Check class="h-3.5 w-3.5 text-green-500" />
+						{:else}
+							<Copy class="h-3.5 w-3.5" />
+						{/if}
+					</Button>
+				</div>
+			</Popover.Content>
+		</Popover.Root>
 
 		<!-- Toggle Theme Button -->
 		<Button
