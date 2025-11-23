@@ -66,7 +66,7 @@
 					name: 'Flutter',
 					logo: FlutterLogo,
 					url: 'https://flutter.dev/',
-					linkTitle: 'Checkout Flutter (a fast dart-based cross-platform movbile framework)'
+					linkTitle: 'Checkout Flutter (a fast dart-based cross-platform mobile framework)'
 				}
 			],
 			status: 'in progress',

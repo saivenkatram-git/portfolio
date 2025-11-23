@@ -14,7 +14,7 @@
 		{
 			designation: 'software engineer',
 			company: 'indian energy exchange',
-			date: 'apr 2024 - nov 2024',
+			date: 'apr 2024 - oct 2024',
 			companyLogo: IEXLogo
 		},
 		{
