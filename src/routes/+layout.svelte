@@ -2,32 +2,35 @@
 	import '../app.css';
 	import favicon from '$lib/assets/favicon.svg';
 	import { ModeWatcher } from 'mode-watcher';
-	import Navbar from '$lib/components/sections/+navbar.svelte';
-	import MoveUpButton from '$lib/components/custom/MoveUpButton.svelte';
+	import ThemeToggle from '$lib/components/custom/ThemeToggle.svelte';
 	import { injectSpeedInsights } from '@vercel/speed-insights/sveltekit';
 
-	// Fonts
-	import '@fontsource/jetbrains-mono/200.css'; // font-extralight
-	import '@fontsource/jetbrains-mono/300.css'; // font-light
-	import '@fontsource/jetbrains-mono/400.css'; // font-normal
-	import '@fontsource/jetbrains-mono/500.css'; // font-medium
-	import '@fontsource/jetbrains-mono/600.css'; // font-semibold
-	import '@fontsource/jetbrains-mono/700.css'; // font-bold
-	import '@fontsource/eb-garamond/400.css';
-
-	// Speed Insights - Vercel
 	injectSpeedInsights();
 </script>
 
 <svelte:head>
 	<link rel="icon" href={favicon} />
-	<title>Sai Venkatram's Portfolio</title>
+	<title>Sai Venkatram</title>
+
+	<!-- Preload self-hosted fonts -->
+	<link
+		rel="preload"
+		href="/fonts/GeneralSans-Variable.woff2"
+		as="font"
+		type="font/woff2"
+		crossorigin="anonymous"
+	/>
+	<link
+		rel="preload"
+		href="/fonts/SpaceGrotesk-Variable.woff2"
+		as="font"
+		type="font/woff2"
+		crossorigin="anonymous"
+	/>
 </svelte:head>
 
+<ModeWatcher disableTransitions={false} />
 <main>
-	<ModeWatcher />
-	<!-- TODO: Add navbar -->
-	<Navbar />
-	<MoveUpButton />
+	<ThemeToggle />
 	<slot />
 </main>

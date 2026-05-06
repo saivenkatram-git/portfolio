@@ -2,18 +2,43 @@
 
 @import 'tw-animate-css';
 
+@font-face {
+	font-family: 'General Sans Variable';
+	src: url('/fonts/GeneralSans-Variable.woff2') format('woff2-variations');
+	font-weight: 200 700;
+	font-style: normal;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'General Sans Variable';
+	src: url('/fonts/GeneralSans-VariableItalic.woff2') format('woff2-variations');
+	font-weight: 200 700;
+	font-style: italic;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'Space Grotesk Variable';
+	src: url('/fonts/SpaceGrotesk-Variable.woff2') format('woff2-variations');
+	font-weight: 300 700;
+	font-style: normal;
+	font-display: swap;
+}
+
 @custom-variant dark (&:is(.dark *));
 
 /* Tailwind V4 doesn't need tailwind.config.ts */
 @theme {
 	/* Fonts */
-	--font-mono: 'JetBrains Mono', monospace;
-	--font-serif: 'EB Garamond Variable', serif;
+	--font-display: 'General Sans Variable', ui-sans-serif, system-ui, sans-serif;
+	--font-grotesk: 'Space Grotesk Variable', ui-sans-serif, system-ui, sans-serif;
 }
 
 :root {
 	--radius: 0.625rem;
-	--background: oklch(0.9318 0.0188 75.32);
+	--link: oklch(0.129 0.042 264.695); /* matches --foreground */
+	--background: oklch(1 0 0);
 	--foreground: oklch(0.129 0.042 264.695);
 	--card: oklch(1 0 0);
 	--card-foreground: oklch(0.129 0.042 264.695);
@@ -47,7 +72,8 @@
 }
 
 .dark {
-	--background: oklch(0.0177 0 0);
+	--link: oklch(0.984 0.003 247.858); /* matches --foreground */
+	--background: oklch(0.145 0 0);
 	--foreground: oklch(0.984 0.003 247.858);
 	--card: oklch(0.208 0.042 265.755);
 	--card-foreground: oklch(0.984 0.003 247.858);
@@ -87,6 +113,7 @@
 	--radius-xl: calc(var(--radius) + 4px);
 	--color-background: var(--background);
 	--color-foreground: var(--foreground);
+	--color-link: var(--link);
 	--color-card: var(--card);
 	--color-card-foreground: var(--card-foreground);
 	--color-popover: var(--popover);
@@ -122,22 +149,69 @@
 	* {
 		@apply border-border outline-ring/50;
 	}
+	html {
+		scrollbar-gutter: stable both-edges;
+		@apply bg-background;
+	}
 	body {
 		@apply bg-background text-foreground;
 	}
 }
 
-/* CUSTOM CLASSES ------------------------------------------------------ */
-
-/* SECTION */
-.section {
-	@apply flex min-h-40 w-full flex-col items-start justify-center gap-y-4 px-10 font-mono lg:px-6;
+/* Link underlines: snap color instantly on theme change to avoid flicker.
+   Hover transition still works because we override on :hover below. */
+a {
+	transition-property: text-decoration-color;
+	transition-duration: 0ms;
+}
+a:hover {
+	transition-duration: 200ms;
 }
 
-.section-animation {
-	@apply animate-in fade-in;
+/* THEME TOGGLE ICON ANIMATION ------------------------------------- */
+.theme-icon {
+	display: inline-flex;
+	transition:
+		transform 600ms cubic-bezier(0.34, 1.3, 0.64, 1),
+		opacity 400ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.section-title {
-	@apply text-sm font-light tracking-wider text-gray-800 dark:text-gray-600;
+.theme-icon-sun {
+	transform: translateY(0);
+	opacity: 1;
+}
+
+.theme-icon-moon {
+	position: absolute;
+	transform: translateY(28px);
+	opacity: 0;
+}
+
+.dark .theme-icon-sun {
+	transform: translateY(-28px);
+	opacity: 0;
+}
+
+.dark .theme-icon-moon {
+	transform: translateY(0);
+	opacity: 1;
+}
+
+/* HERO BEAT ANIMATION ---------------------------------------------- */
+@keyframes hero-beat-in {
+	from {
+		opacity: 0;
+		filter: blur(3px);
+		transform: translateY(12px);
+	}
+	to {
+		opacity: 1;
+		filter: blur(0);
+		transform: translateY(0);
+	}
+}
+
+.hero-beat {
+	opacity: 0;
+	animation: hero-beat-in 0.65s cubic-bezier(0.22, 0.61, 0.36, 1) forwards;
 }
