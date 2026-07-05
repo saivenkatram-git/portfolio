@@ -1,38 +1,38 @@
-# sv
+# Portfolio — Sai Venkatram
 
-Everything you need to build a Svelte project, powered by [`sv`](https://github.com/sveltejs/cli).
+Personal portfolio site: a single-page hero introducing who I am and what I'm
+working on, plus a `/stack` page detailing the tools I build with.
 
-## Creating a project
+## Tech stack
 
-If you're seeing this, you've probably already done this step. Congrats!
+- **[SvelteKit](https://kit.svelte.dev)** (Svelte 5, runes) — app framework
+- **[Tailwind CSS v4](https://tailwindcss.com)** — styling (CSS-first config, no `tailwind.config`)
+- **[mode-watcher](https://github.com/svecosystem/mode-watcher)** — light/dark theme
+- **[@sveltejs/enhanced-img](https://kit.svelte.dev/docs/images)** — responsive image optimization
+- **[Vercel](https://vercel.com)** — hosting (`@sveltejs/adapter-vercel`) + Speed Insights
+- Self-hosted **General Sans** variable font
 
-```sh
-# create a new project in the current directory
-npx sv create
+## Notable details
 
-# create a new project in my-app
-npx sv create my-app
-```
+- Theme-adaptive brand marks via inline `?raw` SVGs colored with `currentColor`.
+- Mobile browser chrome (`theme-color`) kept in sync with the active theme in JS.
+- The `/stack` layout switches on **cursor presence** (`pointer: fine`), not viewport
+  width — touch devices get a reason-per-item list, cursor devices get a compact grid
+  with hover tooltips.
 
-## Developing
-
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
-
-```sh
-npm run dev
-
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
-```
-
-## Building
-
-To create a production version of your app:
+## Development
 
 ```sh
-npm run build
+npm install
+npm run dev      # start dev server on http://localhost:3000
 ```
 
-You can preview the production build with `npm run preview`.
+## Other commands
 
-> To deploy your app, you may need to install an [adapter](https://svelte.dev/docs/kit/adapters) for your target environment.
+```sh
+npm run build    # production build
+npm run preview  # preview the production build
+npm run check    # type-check with svelte-check
+npm run lint     # prettier + eslint
+npm run format   # auto-format with prettier
+```

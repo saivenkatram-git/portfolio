@@ -3,7 +3,7 @@
 	fill="currentColor"
 	fill-rule="evenodd"
 	clip-rule="evenodd"
-	class="h-5 w-5 text-blue-700 opacity-80 transition-opacity group-hover:opacity-100"
+	class="h-5 w-5 text-blue-700 opacity-80 transition-opacity group-hover:opacity-100 dark:text-blue-400"
 >
 	<path
 		fill-rule="evenodd"

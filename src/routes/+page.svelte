@@ -1,17 +1,11 @@
 <script lang="ts">
 	import Hero from '$lib/components/sections/+hero.svelte';
-	import AboutMe from '$lib/components/sections/+about-me.svelte';
-	import Work from '$lib/components/sections/+work.svelte';
-	import Projects from '$lib/components/sections/+projects.svelte';
-	import Tech from '$lib/components/sections/+tech.svelte';
-	import Footer from '$lib/components/sections/+footer.svelte';
 </script>
 
-<div class="mx-auto flex max-w-3xl flex-col items-center">
-	<Hero />
-	<AboutMe />
-	<Work />
-	<Projects />
-	<Tech />
-	<Footer />
+<div
+	class="mt-12 flex min-h-svh w-full flex-col items-center justify-center px-6 py-8 sm:mt-0 md:py-12"
+>
+	<div class="w-full max-w-2xl">
+		<Hero />
+	</div>
 </div>
