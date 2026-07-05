@@ -75,8 +75,11 @@
 		   and causes visible jitter/vibration. svh is fixed, so no jitter. */
 		min-height: 100svh;
 		/* Clip horizontal overflow from off-screen hover tooltips on /stack (absolute,
-		   w-max) so there's no phantom scrollable width / right-side gap on mobile. */
-		overflow-x: hidden;
+		   w-max) so there's no phantom scrollable width / right-side gap on mobile.
+		   NOTE: `clip`, not `hidden` — `overflow-x: hidden` on <html> makes Chrome break
+		   wheel/keyboard vertical scroll (it turns the root into a scroll container the
+		   viewport no longer drives); `clip` clips without creating a scroll container. */
+		overflow-x: clip;
 		background-color: var(--bg-base);
 		background-image: radial-gradient(150% 150% at 0% 20%, var(--bg-hi) 18%, var(--bg-base) 90%);
 		background-repeat: no-repeat;
@@ -91,7 +94,7 @@
 		/* Stop iOS rubber-band overscroll at the scroll boundaries, which otherwise
 		   bounces the page and reads as top jitter when you reach the bottom. */
 		overscroll-behavior-y: none;
-		overflow-x: hidden; /* see the html rule above — clips the /stack tooltip overflow */
+		overflow-x: clip; /* see the html rule above — clip (not hidden) to keep scroll working */
 	}
 }
 
@@ -139,16 +142,17 @@ a:hover {
 	opacity: 1;
 }
 
-/* Hero beats fade/blur up in sequence on load. */
+/* Hero beats fade + slide up in sequence on load. No filter: blur() — ending a `forwards`
+   animation on blur(0) leaves the element on a GPU layer that iOS Safari rasterizes
+   slightly soft, making whole cards look blurry. Opacity + transform alone give the same
+   feel with no such artifact. */
 @keyframes hero-beat-in {
 	from {
 		opacity: 0;
-		filter: blur(3px);
 		transform: translateY(12px);
 	}
 	to {
 		opacity: 1;
-		filter: blur(0);
 		transform: translateY(0);
 	}
 }
@@ -156,4 +160,65 @@ a:hover {
 .hero-beat {
 	opacity: 0;
 	animation: hero-beat-in 0.65s cubic-bezier(0.22, 0.61, 0.36, 1) forwards;
+}
+
+/* Liquid-glass surface (Apple-style). Layered light fakes a glass lens without real
+   refraction: a frosted+saturated backdrop, a top-lit surface sheen, a bright specular
+   rim beveled brighter on top than bottom, and an outer shadow/glow for lift. */
+.liquid-glass {
+	position: relative;
+	background: linear-gradient(
+		to bottom,
+		color-mix(in srgb, var(--bg-base) 55%, transparent),
+		color-mix(in srgb, var(--bg-base) 72%, transparent)
+	);
+	backdrop-filter: blur(16px) saturate(180%);
+	-webkit-backdrop-filter: blur(16px) saturate(180%);
+	box-shadow:
+		/* soft lift + ambient shadow below */
+		0 8px 24px -6px rgb(0 0 0 / 0.28),
+		0 2px 6px -2px rgb(0 0 0 / 0.2),
+		/* specular rim: bright top edge, faint dark bottom edge (the bevel) */ inset 0 1px 0.5px
+			rgb(255 255 255 / 0.55),
+		inset 0 -1px 0.5px rgb(0 0 0 / 0.14),
+		/* overall inner glass ring */ inset 0 0 0 1px rgb(255 255 255 / 0.16);
+}
+/* A brighter top-arc sheen sitting over the surface, like light catching the lens. */
+.liquid-glass::before {
+	content: '';
+	position: absolute;
+	inset: 0;
+	border-radius: inherit;
+	pointer-events: none;
+	background: radial-gradient(
+		120% 80% at 50% -10%,
+		rgb(255 255 255 / 0.35) 0%,
+		rgb(255 255 255 / 0.06) 35%,
+		transparent 60%
+	);
+}
+:root.dark .liquid-glass {
+	box-shadow:
+		0 8px 24px -6px rgb(0 0 0 / 0.5),
+		0 2px 6px -2px rgb(0 0 0 / 0.4),
+		inset 0 1px 0.5px rgb(255 255 255 / 0.35),
+		inset 0 -1px 0.5px rgb(0 0 0 / 0.3),
+		inset 0 0 0 1px rgb(255 255 255 / 0.1);
+}
+:root.dark .liquid-glass::before {
+	background: radial-gradient(
+		120% 80% at 50% -10%,
+		rgb(255 255 255 / 0.2) 0%,
+		rgb(255 255 255 / 0.04) 35%,
+		transparent 60%
+	);
+}
+
+/* Scroll lock for the gear detail modal — toggled on <body> while a modal is open so the
+   page can't scroll behind it. A class (not inline position:fixed) clears cleanly and
+   can't get stuck across HMR. Paired with the modal's own overscroll-contain/touch-none. */
+body.scroll-locked {
+	overflow: hidden;
+	overscroll-behavior: none;
+	touch-action: none;
 }

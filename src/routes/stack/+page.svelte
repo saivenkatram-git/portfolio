@@ -230,14 +230,36 @@
 			]
 		}
 	];
+
+	import MobileDock from '$lib/components/custom/MobileDock.svelte';
+	import { dock } from '$lib/dockState.svelte';
+
+	// Reveal the mobile dock (and hide the top toggle) once the back-link scrolls out of
+	// view; hide it again when it returns. Cleaned up on unmount.
+	let backLink: HTMLElement | undefined = $state();
+	$effect(() => {
+		if (!backLink) return;
+		const io = new IntersectionObserver(([entry]) => (dock.active = !entry.isIntersecting), {
+			rootMargin: '-8px 0px 0px 0px'
+		});
+		io.observe(backLink);
+		return () => {
+			io.disconnect();
+			dock.active = false;
+		};
+	});
 </script>
 
 <svelte:head>
 	<title>Tech stack · Sai Venkatram</title>
 </svelte:head>
 
-<div class="mx-auto flex max-w-3xl flex-col items-start gap-y-10 px-6 py-20 md:px-10">
+<MobileDock />
+
+<!-- pb-32 leaves room for the bottom scroll dock so it never covers the last item. -->
+<div class="mx-auto flex max-w-3xl flex-col items-start gap-y-10 px-6 py-20 pb-32 md:px-10">
 	<a
+		bind:this={backLink}
 		href="/"
 		class="hero-beat font-display text-sm text-gray-500 underline-offset-4 hover:underline dark:text-gray-400"
 	>
