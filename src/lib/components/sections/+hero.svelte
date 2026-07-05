@@ -113,6 +113,16 @@
 			</p>
 
 			<p>
+				Curious about my desk setup?
+				<a
+					href="/gear"
+					class="text-link underline decoration-gray-300 underline-offset-4 transition-colors hover:decoration-foreground dark:decoration-gray-700 dark:hover:decoration-foreground"
+				>
+					See my gear
+				</a>
+			</p>
+
+			<p>
 				Need my resume?
 				<a
 					href="/files/Resume.pdf"

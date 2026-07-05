@@ -5,6 +5,7 @@
 	import CatBlink from '$lib/assets/cat-blink.gif';
 	import { ModeWatcher, mode } from 'mode-watcher';
 	import ThemeToggle from '$lib/components/custom/ThemeToggle.svelte';
+	import { dock } from '$lib/dockState.svelte';
 	import { injectSpeedInsights } from '@vercel/speed-insights/sveltekit';
 
 	let { children }: { children: Snippet } = $props();
@@ -51,7 +52,9 @@
 		class="pointer-events-none fixed right-4 bottom-4 z-40 hidden opacity-90 select-none lg:block"
 		style="width: clamp(4.5rem, -9rem + 13.5vw, 7rem)"
 	/>
-	<span class="fixed top-6 right-6 z-50">
+	<!-- The top-right toggle hides once the scroll dock takes over (dock.active); the dock
+	     then carries the theme toggle. -->
+	<span class="fixed top-6 right-6 z-50 {dock.active ? 'hidden' : ''}">
 		<ThemeToggle />
 	</span>
 </nav>
