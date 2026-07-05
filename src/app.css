@@ -7,103 +7,39 @@
 	src: url('/fonts/GeneralSans-Variable.woff2') format('woff2-variations');
 	font-weight: 200 700;
 	font-style: normal;
-	font-display: swap;
-}
-
-@font-face {
-	font-family: 'General Sans Variable';
-	src: url('/fonts/GeneralSans-VariableItalic.woff2') format('woff2-variations');
-	font-weight: 200 700;
-	font-style: italic;
-	font-display: swap;
-}
-
-@font-face {
-	font-family: 'Space Grotesk Variable';
-	src: url('/fonts/SpaceGrotesk-Variable.woff2') format('woff2-variations');
-	font-weight: 300 700;
-	font-style: normal;
-	font-display: swap;
+	/* optional (not swap): the preloaded font renders immediately when it arrives in
+	   time (the common case) with no swap/reflow; on a rare slow first load it falls
+	   back cleanly for that visit instead of a jarring mid-page font swap. */
+	font-display: optional;
 }
 
 @custom-variant dark (&:is(.dark *));
 
-/* Tailwind V4 doesn't need tailwind.config.ts */
 @theme {
-	/* Fonts */
 	--font-display: 'General Sans Variable', ui-sans-serif, system-ui, sans-serif;
-	--font-grotesk: 'Space Grotesk Variable', ui-sans-serif, system-ui, sans-serif;
 }
 
 :root {
 	--radius: 0.625rem;
-	--link: oklch(0.129 0.042 264.695); /* matches --foreground */
+	--link: oklch(0.129 0.042 264.695); /* matches --foreground-strong */
 	--background: oklch(1 0 0);
-	--foreground: oklch(0.129 0.042 264.695);
-	--card: oklch(1 0 0);
-	--card-foreground: oklch(0.129 0.042 264.695);
-	--popover: oklch(1 0 0);
-	--popover-foreground: oklch(0.129 0.042 264.695);
-	--primary: oklch(0.208 0.042 265.755);
-	--primary-foreground: oklch(0.984 0.003 247.858);
-	--secondary: oklch(0.968 0.007 247.896);
-	--secondary-foreground: oklch(0.208 0.042 265.755);
-	--muted: oklch(0.968 0.007 247.896);
-	--muted-foreground: oklch(0.554 0.046 257.417);
-	--accent: oklch(0.968 0.007 247.896);
-	--accent-foreground: oklch(0.208 0.042 265.755);
-	--destructive: oklch(0.577 0.245 27.325);
+	/* Body text = muted slate (slate-600 #475569) for a clear step-down from the near-black
+	   heading — mirrors the dark-mode body/heading hierarchy. */
+	--foreground: oklch(0.446 0.0345 256.8);
+	--foreground-strong: oklch(0.129 0.042 264.695);
 	--border: oklch(0.929 0.013 255.508);
-	--input: oklch(0.929 0.013 255.508);
 	--ring: oklch(0.704 0.04 256.788);
-	--chart-1: oklch(0.646 0.222 41.116);
-	--chart-2: oklch(0.6 0.118 184.704);
-	--chart-3: oklch(0.398 0.07 227.392);
-	--chart-4: oklch(0.828 0.189 84.429);
-	--chart-5: oklch(0.769 0.188 70.08);
-	--sidebar: oklch(0.984 0.003 247.858);
-	--sidebar-foreground: oklch(0.129 0.042 264.695);
-	--sidebar-primary: oklch(0.208 0.042 265.755);
-	--sidebar-primary-foreground: oklch(0.984 0.003 247.858);
-	--sidebar-accent: oklch(0.968 0.007 247.896);
-	--sidebar-accent-foreground: oklch(0.208 0.042 265.755);
-	--sidebar-border: oklch(0.929 0.013 255.508);
-	--sidebar-ring: oklch(0.704 0.04 256.788);
 }
 
 .dark {
-	--link: oklch(0.984 0.003 247.858); /* matches --foreground */
+	--link: oklch(0.984 0.003 247.858); /* matches --foreground-strong */
 	--background: oklch(0.145 0 0);
-	--foreground: oklch(0.984 0.003 247.858);
-	--card: oklch(0.208 0.042 265.755);
-	--card-foreground: oklch(0.984 0.003 247.858);
-	--popover: oklch(0.208 0.042 265.755);
-	--popover-foreground: oklch(0.984 0.003 247.858);
-	--primary: oklch(0.929 0.013 255.508);
-	--primary-foreground: oklch(0.208 0.042 265.755);
-	--secondary: oklch(0.279 0.041 260.031);
-	--secondary-foreground: oklch(0.984 0.003 247.858);
-	--muted: oklch(0.279 0.041 260.031);
-	--muted-foreground: oklch(0.704 0.04 256.788);
-	--accent: oklch(0.279 0.041 260.031);
-	--accent-foreground: oklch(0.984 0.003 247.858);
-	--destructive: oklch(0.704 0.191 22.216);
+	/* Body text = muted gray (slate-400 #94a3b8) for a clear step-down from the white
+	   heading. Headings/emphasis use --foreground-strong (white) via text-foreground-strong. */
+	--foreground: oklch(0.707 0.0333 256.8);
+	--foreground-strong: oklch(0.984 0.003 247.858);
 	--border: oklch(1 0 0 / 10%);
-	--input: oklch(1 0 0 / 15%);
 	--ring: oklch(0.551 0.027 264.364);
-	--chart-1: oklch(0.488 0.243 264.376);
-	--chart-2: oklch(0.696 0.17 162.48);
-	--chart-3: oklch(0.769 0.188 70.08);
-	--chart-4: oklch(0.627 0.265 303.9);
-	--chart-5: oklch(0.645 0.246 16.439);
-	--sidebar: oklch(0.208 0.042 265.755);
-	--sidebar-foreground: oklch(0.984 0.003 247.858);
-	--sidebar-primary: oklch(0.488 0.243 264.376);
-	--sidebar-primary-foreground: oklch(0.984 0.003 247.858);
-	--sidebar-accent: oklch(0.279 0.041 260.031);
-	--sidebar-accent-foreground: oklch(0.984 0.003 247.858);
-	--sidebar-border: oklch(1 0 0 / 10%);
-	--sidebar-ring: oklch(0.551 0.027 264.364);
 }
 
 @theme inline {
@@ -113,62 +49,68 @@
 	--radius-xl: calc(var(--radius) + 4px);
 	--color-background: var(--background);
 	--color-foreground: var(--foreground);
+	--color-foreground-strong: var(--foreground-strong);
 	--color-link: var(--link);
-	--color-card: var(--card);
-	--color-card-foreground: var(--card-foreground);
-	--color-popover: var(--popover);
-	--color-popover-foreground: var(--popover-foreground);
-	--color-primary: var(--primary);
-	--color-primary-foreground: var(--primary-foreground);
-	--color-secondary: var(--secondary);
-	--color-secondary-foreground: var(--secondary-foreground);
-	--color-muted: var(--muted);
-	--color-muted-foreground: var(--muted-foreground);
-	--color-accent: var(--accent);
-	--color-accent-foreground: var(--accent-foreground);
-	--color-destructive: var(--destructive);
 	--color-border: var(--border);
-	--color-input: var(--input);
 	--color-ring: var(--ring);
-	--color-chart-1: var(--chart-1);
-	--color-chart-2: var(--chart-2);
-	--color-chart-3: var(--chart-3);
-	--color-chart-4: var(--chart-4);
-	--color-chart-5: var(--chart-5);
-	--color-sidebar: var(--sidebar);
-	--color-sidebar-foreground: var(--sidebar-foreground);
-	--color-sidebar-primary: var(--sidebar-primary);
-	--color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
-	--color-sidebar-accent: var(--sidebar-accent);
-	--color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
-	--color-sidebar-border: var(--sidebar-border);
-	--color-sidebar-ring: var(--sidebar-ring);
 }
 
 @layer base {
 	* {
 		@apply border-border outline-ring/50;
 	}
+	/* Near-flat atmospheric wash (kyh.io-inspired): a SOLID base tone with a faint
+	   radial glow toward the top. ONE layer only — the wash lives on html and body is
+	   transparent, so there's no second layer to create a hard seam where they'd meet.
+	   Both top and bottom edges settle to the same --bg-base, which a single flat
+	   `theme-color` (app.html + toggled in +layout.svelte) matches on mobile chrome. */
 	html {
-		scrollbar-gutter: stable both-edges;
-		@apply bg-background;
+		/* Corner-anchored two-tone wash (Geist-style): a lighter highlight tone at the
+		   top-left corner, easing to the base tone toward the bottom-right. --bg-base is
+		   also the flat fallback (fills notch / safe-area) and the theme-color match. */
+		--bg-base: #eef1f6;
+		--bg-hi: #ffffff;
+		/* svh (stable small viewport), NOT dvh — dvh changes as the mobile URL bar
+		   collapses/expands during scroll, which resizes html at the scroll boundary
+		   and causes visible jitter/vibration. svh is fixed, so no jitter. */
+		min-height: 100svh;
+		/* Clip horizontal overflow from off-screen hover tooltips on /stack (absolute,
+		   w-max) so there's no phantom scrollable width / right-side gap on mobile. */
+		overflow-x: hidden;
+		background-color: var(--bg-base);
+		background-image: radial-gradient(150% 150% at 0% 20%, var(--bg-hi) 18%, var(--bg-base) 90%);
+		background-repeat: no-repeat;
+	}
+	html.dark {
+		--bg-base: #0d1220;
+		--bg-hi: #05070c;
 	}
 	body {
-		@apply bg-background text-foreground;
+		@apply text-foreground;
+		background: transparent;
+		/* Stop iOS rubber-band overscroll at the scroll boundaries, which otherwise
+		   bounces the page and reads as top jitter when you reach the bottom. */
+		overscroll-behavior-y: none;
+		overflow-x: hidden; /* see the html rule above — clips the /stack tooltip overflow */
 	}
 }
 
-/* Link underlines: snap color instantly on theme change to avoid flicker.
-   Hover transition still works because we override on :hover below. */
+/* Link underlines: snap color instantly on theme change to avoid flicker, but keep
+   transform animating (so anchor-based hover scale/lift stays smooth — otherwise this
+   rule would clobber Tailwind's `transition-transform` on <a> elements).
+   Per-property: decoration-color 0ms (snaps), transform 200ms ease-out. */
 a {
-	transition-property: text-decoration-color;
-	transition-duration: 0ms;
+	transition-property: text-decoration-color, transform, translate, scale, rotate;
+	transition-duration: 0ms, 200ms, 200ms, 200ms, 200ms;
+	transition-timing-function:
+		linear, cubic-bezier(0, 0, 0.2, 1), cubic-bezier(0, 0, 0.2, 1), cubic-bezier(0, 0, 0.2, 1),
+		cubic-bezier(0, 0, 0.2, 1);
 }
 a:hover {
-	transition-duration: 200ms;
+	transition-duration: 200ms, 200ms, 200ms, 200ms, 200ms;
 }
 
-/* THEME TOGGLE ICON ANIMATION ------------------------------------- */
+/* Theme toggle: sun/moon cross-fade + vertical slide on theme change. */
 .theme-icon {
 	display: inline-flex;
 	transition:
@@ -197,7 +139,7 @@ a:hover {
 	opacity: 1;
 }
 
-/* HERO BEAT ANIMATION ---------------------------------------------- */
+/* Hero beats fade/blur up in sequence on load. */
 @keyframes hero-beat-in {
 	from {
 		opacity: 0;
