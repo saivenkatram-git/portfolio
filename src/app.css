@@ -172,8 +172,10 @@ a:hover {
 		color-mix(in srgb, var(--bg-base) 55%, transparent),
 		color-mix(in srgb, var(--bg-base) 72%, transparent)
 	);
+	/* Only the standard property here — the build's Lightning CSS adds the -webkit- prefix
+	   from browser targets. Writing both by hand made it dedupe to ONLY the prefixed one,
+	   dropping the standard property, so the blur vanished on non-Safari desktop. */
 	backdrop-filter: blur(16px) saturate(180%);
-	-webkit-backdrop-filter: blur(16px) saturate(180%);
 	box-shadow:
 		/* soft lift + ambient shadow below */
 		0 8px 24px -6px rgb(0 0 0 / 0.28),
